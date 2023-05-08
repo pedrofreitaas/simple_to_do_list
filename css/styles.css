@@ -1,0 +1,76 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("../imgs/nature.jpg");
+    background-size: cover;
+    background-position-y: -200px;
+}
+
+#list_interactor_container {
+    text-align: center;
+    align-items: center;
+}
+
+#list_interactor_container > h3 {
+    background-color: transparent;
+    font-size: 25px;
+}
+
+#list_operators {
+    position: relative;
+    background-color: rgb(233, 239, 241);
+    border: solid 2px;
+    border-radius: 6px;
+    width: 300px;
+    padding: 10px;
+}
+
+#text-input {
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 10px;
+    border: solid 2px;
+}
+
+#text_catcher_button, #text_clearer_button {
+    background-color: #eeefff;
+    border-radius: 3px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 80%;
+    margin-top: 5px;
+    transition: .125s;
+    cursor: pointer;
+}
+
+#text_catcher_button {
+    width: 30px; height: 30px;
+}
+
+#text_catcher_button:hover {
+    border-radius: 50%;
+}
+
+#text_clearer_button:hover {
+    background-color: #adada8;
+    border: solid 2px;
+}
+
+#main_list{
+    width: 80%;
+    line-height: 50px;
+}
+
+#main_list > li {
+    animation: showUp 1s;
+
+    background-color: rgb(235, 228, 218);
+    border-radius: 5px;
+}
+
+@keyframes showUp {
+    from { transform: scale(0); }
+    to { transform: scale(100%); }
+}
