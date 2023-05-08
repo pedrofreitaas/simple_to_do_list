@@ -15,4 +15,4 @@ The data persists with the page is reloaded.\n
 
 ## Projects screenshots.
 
-![](https://imgur.com/a/1HXUr9Q)
+![](https://imgur.com/vbpcxrL)
