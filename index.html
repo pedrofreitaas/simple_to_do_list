@@ -5,7 +5,7 @@
 
     <script src="https://kit.fontawesome.com/2aba07abb1.js" crossorigin="anonymous"></script>
 
-    <script src="script/script.js"> </script>
+    <script src="script/script.js" defer> </script>
 
     <title> Making dynamic to-do list. </title>
 
@@ -14,37 +14,12 @@
 <body>
 
     <div id="list_interactor_container">
-
-        <div id="list_operators">
-            <h3> To-do list. </h3>
-            <input id="text-input" type="text" placeholder="Digite algo." />
-            <button id="text_catcher_button" onclick=addInList()> <i class="fat fa-plus"></i> </button>
-            <button id="text_clearer_button" onclick=clearList()> Clear </button>
-        </div>
-
+        <h3> To-do list. </h3>
+        <input id="text_input" type="text" placeholder="Digite algo." />
+        <button id="text_catcher_button" onclick=addInList()> <i class="fat fa-plus"></i> </button>
+        <button id="text_clearer_button" onclick=clearList()> Clear </button>
     </div>
 
-    <div class="item">
-        <p>
-            <i class="fa-sharp fa-solid fa-arrow-right"></i>
-            Read a book.
-            <button id="remove_task_button" onclick="removeTask(this)"> <i class="fa-solid fa-xmark"></i> </button>
-            <button id="mark_done_task_button" onclick="markTaskDone(this)"> <i class="fa-solid fa-thumbs-up"></i> </button>
-            <button id="highlight_task_button" onclick="highlightTask(this)"> <i class="fa-solid fa-star"></i> </button>  
-        </p>
-    </div>
-
-    <div class="item">
-        <p>
-            <i class="fa-sharp fa-solid fa-arrow-right"></i>
-            Do the dishes.
-            <button id="remove_task_button" onclick="removeTask(this)"> <i class="fa-solid fa-xmark"></i> </button>
-            <button id="mark_done_task_button" onclick="markTaskDone(this)"> <i class="fa-solid fa-thumbs-up"></i> </button>
-            <button id="highlight_task_button" onclick="highlightTask(this)"> <i class="fa-solid fa-star"></i> </button>  
-        </p>
-    </div>
-
-    <ul id="main_list"></ul>
 </body>
 
 </html>

@@ -1,5 +1,3 @@
-const itemsKeys = "list_items";
-
 window.onload = function teste() {
     const storedItems = JSON.parse(localStorage.getItem('list_items'));
 
@@ -20,17 +18,26 @@ window.onload = function teste() {
     }
 }
 
-function addInlist() {
+//Returns an item of the list initialized with the textContent.
+function createItem(textContent) {
+    var newItem = document.createElement("div");
+    newItem.className = 'item';
 
-}
+    newItem.innerHTML = `<i class="fa-sharp fa-solid fa-arrow-right"></i>
+        
+    <p> ${textContent} </p>
 
-function clearList() {
-    
+    <button class="remove_task_button" onclick="removeTask(this)"> <i class="fa-solid fa-xmark"></i> </button>
+    <button class="mark_done_task_button" onclick="markTaskDone(this)"> <i class="fa-solid fa-thumbs-up"></i> </button>
+    <button class="highlight_task_button" onclick="highlightTask(this)"> <i class="fa-solid fa-star"></i> </button>  
+    `;
+
+    return newItem;
 }
 
 //Makes the task disapper from the page.
 function removeTask(element) {
-    element.parentElement.parentElement.remove()
+    element.parentElement.remove()
 }
 
 //Makes the text go normal<->scratch. 
@@ -49,4 +56,20 @@ function highlightTask(element) {
 
     else
         element.parentElement.style.fontWeight = '';
+}
+
+function addInList() {
+    var textInput = document.getElementById('text_input').value;
+
+    if (textInput == '') return;
+
+    var newItem = createItem(textInput);
+    document.body.appendChild(newItem);
+}
+
+function clearList() {
+    var items = document.querySelectorAll('.item');
+    items.forEach(item=>item.remove());
+
+    localStorage.clear();
 }

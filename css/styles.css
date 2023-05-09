@@ -1,4 +1,6 @@
 * {
+    margin: 0px;
+    padding: 0px;
     box-sizing: border-box;
 }
 
@@ -11,14 +13,6 @@ body {
 #list_interactor_container {
     text-align: center;
     align-items: center;
-}
-
-#list_interactor_container > h3 {
-    background-color: transparent;
-    font-size: 25px;
-}
-
-#list_operators {
     position: relative;
     background-color: rgb(233, 239, 241);
     border: solid 2px;
@@ -27,7 +21,12 @@ body {
     padding: 10px;
 }
 
-#text-input {
+#list_interactor_container > h3 {
+    background-color: transparent;
+    font-size: 25px;
+}
+
+#text_input {
     background-color: #ffffff;
     border-radius: 5px;
     padding: 10px;
@@ -50,7 +49,9 @@ body {
 }
 
 #text_catcher_button:hover {
-    border-radius: 50%;
+    border-radius: 25%;
+    background-color: #adada8;
+    border: solid 2px;
 }
 
 #text_clearer_button:hover {
@@ -79,11 +80,15 @@ body {
     font-weight: 10;
 }
 
-#remove_task_button, #mark_done_task_button, #highlight_task_button {
+.item > p {
+    display: inline;
+}
+
+.remove_task_button, .mark_done_task_button, .highlight_task_button {
     border-radius: 2px;
 }
 
-#remove_task_button:hover, #mark_done_task_button:hover, #highlight_task_button:hover {
+.remove_task_button:hover, .mark_done_task_button:hover, .highlight_task_button:hover {
     background-color: #ded7d7;
 }
 
