@@ -70,6 +70,23 @@ body {
     border-radius: 5px;
 }
 
+.item {
+    background-color: burlywood;
+    border-radius: 3px;
+    margin: 3px;
+    padding: 3px;
+    width: fit-content;
+    font-weight: 10;
+}
+
+#remove_task_button, #mark_done_task_button, #highlight_task_button {
+    border-radius: 2px;
+}
+
+#remove_task_button:hover, #mark_done_task_button:hover, #highlight_task_button:hover {
+    background-color: #ded7d7;
+}
+
 @keyframes showUp {
     from { transform: scale(0); }
     to { transform: scale(100%); }

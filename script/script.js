@@ -1,46 +1,5 @@
 const itemsKeys = "list_items";
 
-function persistData(listItem) {
-    var storedItemsString = localStorage.getItem(itemsKeys);
-    var newItemString = listItem.textContent;
-
-    if (listItem.style.fontWeight=='bold')
-        newItemString = "*" + newItemString;
-
-    // no stored items.
-    if (storedItemsString==null) {
-        var storedItems = [newItemString];
-        localStorage.setItem(itemsKeys,JSON.stringify(storedItems));
-        return;
-    }
-
-    var storedItems = JSON.parse(storedItemsString);
-    storedItems.push(newItemString);
-    localStorage.setItem(itemsKeys, JSON.stringify(storedItems));
-}
-
-function addInList() {
-    var list = document.getElementById("main_list");
-
-    var listItem = document.createElement("li");
-    listItem.textContent = document.getElementById("text-input").value;
-    
-    if (listItem.textContent[0]=="*") {
-        listItem.style.fontWeight = 'bold';
-        listItem.textContent = listItem.textContent.slice(1);
-    }
-    
-    if (listItem.textContent=="") return;
-
-    list.appendChild(listItem);
-    persistData(listItem);
-}
-
-function clearList() {
-    document.getElementById("main_list").innerHTML = '';
-    localStorage.removeItem(itemsKeys);    
-}
-
 window.onload = function teste() {
     const storedItems = JSON.parse(localStorage.getItem('list_items'));
 
@@ -59,4 +18,35 @@ window.onload = function teste() {
         
         taskList.appendChild(listItem);
     }
+}
+
+function addInlist() {
+
+}
+
+function clearList() {
+    
+}
+
+//Makes the task disapper from the page.
+function removeTask(element) {
+    element.parentElement.parentElement.remove()
+}
+
+//Makes the text go normal<->scratch. 
+function markTaskDone(element) {
+    if (element.parentElement.style.textDecoration == '' )
+        element.parentElement.style.textDecoration = 'line-through';
+    
+    else
+        element.parentElement.style.textDecoration = '';
+}
+
+//Makes the text go normal<->bold.
+function highlightTask(element) {
+    if (element.parentElement.style.fontWeight != 'bold' )
+        element.parentElement.style.fontWeight = 'bold';
+
+    else
+        element.parentElement.style.fontWeight = '';
 }

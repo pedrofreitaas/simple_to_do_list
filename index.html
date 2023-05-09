@@ -3,9 +3,7 @@
 <head>
     <link rel="stylesheet" href="css/styles.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.css"
-        integrity="sha512-Z0kTB03S7BU+JFU0nw9mjSBcRnZm2Bvm0tzOX9/OuOuz01XQfOpa0w/N9u6Jf2f1OAdegdIPWZ9nIZZ+keEvBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/2aba07abb1.js" crossorigin="anonymous"></script>
 
     <script src="script/script.js"> </script>
 
@@ -17,24 +15,36 @@
 
     <div id="list_interactor_container">
 
-
         <div id="list_operators">
             <h3> To-do list. </h3>
             <input id="text-input" type="text" placeholder="Digite algo." />
-            <button id="text_catcher_button" onclick=addInList()> <i class="fa-thin fa-plus"></i> </button>
+            <button id="text_catcher_button" onclick=addInList()> <i class="fat fa-plus"></i> </button>
             <button id="text_clearer_button" onclick=clearList()> Clear </button>
         </div>
 
     </div>
 
-    <ul id="main_list"></ul>
-
-    <div id="tasks">
-        <div id="task">
-        </div>
+    <div class="item">
+        <p>
+            <i class="fa-sharp fa-solid fa-arrow-right"></i>
+            Read a book.
+            <button id="remove_task_button" onclick="removeTask(this)"> <i class="fa-solid fa-xmark"></i> </button>
+            <button id="mark_done_task_button" onclick="markTaskDone(this)"> <i class="fa-solid fa-thumbs-up"></i> </button>
+            <button id="highlight_task_button" onclick="highlightTask(this)"> <i class="fa-solid fa-star"></i> </button>  
+        </p>
     </div>
 
-    <i class="fa-thin fa-xmark"></i>
+    <div class="item">
+        <p>
+            <i class="fa-sharp fa-solid fa-arrow-right"></i>
+            Do the dishes.
+            <button id="remove_task_button" onclick="removeTask(this)"> <i class="fa-solid fa-xmark"></i> </button>
+            <button id="mark_done_task_button" onclick="markTaskDone(this)"> <i class="fa-solid fa-thumbs-up"></i> </button>
+            <button id="highlight_task_button" onclick="highlightTask(this)"> <i class="fa-solid fa-star"></i> </button>  
+        </p>
+    </div>
+
+    <ul id="main_list"></ul>
 </body>
 
 </html>
