@@ -8,6 +8,7 @@ body {
     background-image: url("../imgs/nature.jpg");
     background-size: cover;
     background-position-y: -200px;
+    padding: 50px;
 }
 
 #list_interactor_container {
@@ -19,6 +20,7 @@ body {
     border-radius: 6px;
     width: 300px;
     padding: 10px;
+    margin: 20px;
 }
 
 #list_interactor_container > h3 {
@@ -59,22 +61,10 @@ body {
     border: solid 2px;
 }
 
-#main_list{
-    width: 80%;
-    line-height: 50px;
-}
-
-#main_list > li {
-    animation: showUp 1s;
-
-    background-color: rgb(235, 228, 218);
-    border-radius: 5px;
-}
-
 .item {
     background-color: burlywood;
     border-radius: 3px;
-    margin: 3px;
+    margin-top: 10px; margin-bottom: 10px;
     padding: 3px;
     width: fit-content;
     font-weight: 10;
@@ -86,6 +76,7 @@ body {
 
 .remove_task_button, .mark_done_task_button, .highlight_task_button {
     border-radius: 2px;
+    padding: 3px;
 }
 
 .remove_task_button:hover, .mark_done_task_button:hover, .highlight_task_button:hover {

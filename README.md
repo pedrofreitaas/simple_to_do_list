@@ -2,9 +2,9 @@
 # Simple TO-DO dynamic list.
 
 ```bash
-This is a list where you can load things to do, and mark then in bold. (just write the task is a previous "*")\n
+This is a list where you can load things to do, and highlight, remove or mark them as done.\n
 The list have the adding and clearing features.\n
-The data persists with the page is reloaded.\n
+The data persists with the page is reloaded. (still have to impement in the new version)\n
 ```
 
 
@@ -15,4 +15,4 @@ The data persists with the page is reloaded.\n
 
 ## Projects screenshots.
 
-![](https://imgur.com/vbpcxrL.png)
+![](https://i.imgur.com/zdyCwp3.png)
