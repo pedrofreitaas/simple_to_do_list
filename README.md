@@ -4,7 +4,7 @@
 ```
 This is a list where you can load things to do.
 It's possible to highlight, remove or mark them as done.
-The list have the adding and clearing features.
+The list has the adding and clearing features.
 The data persists with the page is reloaded.
 ```
 
