@@ -8,19 +8,21 @@ body {
     background-image: url("../imgs/nature.jpg");
     background-size: cover;
     background-position-y: -200px;
-    padding: 50px;
+
+    text-align: center;
+    padding: 5%;
 }
 
 #list_interactor_container {
+    display: inline-block;
     text-align: center;
-    align-items: center;
-    position: relative;
     background-color: rgb(233, 239, 241);
-    border: solid 2px;
+    border: solid 3px #333;
+    background: linear-gradient(to right, #dfd7d7, #fff);
+    box-shadow: 10px 10px 1px rgba(93, 77, 77, 0.3);
     border-radius: 6px;
-    width: 300px;
+    width: fit-content;
     padding: 10px;
-    margin: 20px;
 }
 
 #list_interactor_container > h3 {
@@ -28,11 +30,24 @@ body {
     font-size: 25px;
 }
 
+#list_interactor_container > hr {
+    height: 3px;
+    background-color: black;
+    margin: 10px;
+}
+
+#divisor_hr {
+    background-color: #ffffff;
+    border: 1px dashed #ffffff;
+}
+
 #text_input {
     background-color: #ffffff;
     border-radius: 5px;
+    margin-top: 5px; margin-bottom: 5px;
     padding: 10px;
     border: solid 2px;
+    box-shadow: 4px 4px 3px rgba(93, 77, 77, 0.3);
 }
 
 #text_catcher_button, #text_clearer_button {
@@ -41,33 +56,29 @@ body {
     text-align: center;
     font-weight: bold;
     font-size: 80%;
-    margin-top: 5px;
     transition: .125s;
     cursor: pointer;
+    margin: 5px;
 }
 
 #text_catcher_button {
     width: 30px; height: 30px;
 }
 
-#text_catcher_button:hover {
-    border-radius: 25%;
-    background-color: #adada8;
-    border: solid 2px;
+#text_clearer_button {
+    width: 50px; height: 30px;
 }
 
-#text_clearer_button:hover {
+#text_catcher_button:hover, #text_clearer_button:hover {
+    border-radius: 15%;
     background-color: #adada8;
     border: solid 2px;
 }
 
 .item {
-    background-color: burlywood;
-    border-radius: 3px;
-    margin-top: 10px; margin-bottom: 10px;
-    padding: 3px;
-    width: fit-content;
-    font-weight: 10;
+    margin: 10px;
+    animation-name: showUp;
+    animation-duration:.125s;
 }
 
 .item > p {
@@ -76,7 +87,7 @@ body {
 
 .remove_task_button, .mark_done_task_button, .highlight_task_button {
     border-radius: 2px;
-    padding: 3px;
+    padding: 3px; margin: 2px;
 }
 
 .remove_task_button:hover, .mark_done_task_button:hover, .highlight_task_button:hover {
@@ -84,6 +95,8 @@ body {
 }
 
 @keyframes showUp {
-    from { transform: scale(0); }
-    to { transform: scale(100%); }
+    0% { transform: scale(10%); }
+    50% { transform: scale(30%); }
+    60% { transform: scale(60%); }
+    100% { transform: scale(100%); }
 }

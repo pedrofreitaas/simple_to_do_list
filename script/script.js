@@ -1,5 +1,11 @@
 const allItemsKey = 'items';
 
+function displayInCotainer(element) {
+    var todoList = document.getElementById("list_interactor_container");
+
+    todoList.appendChild(element);
+}
+
 window.onload = function loadItems() {
     var items = localStorage.getItem(allItemsKey);
 
@@ -14,7 +20,7 @@ window.onload = function loadItems() {
         if (itemInfo.bold) item.style.fontWeight = 'bold';
         if (itemInfo.line_through) item.style.textDecoration = 'line-through';
 
-        document.body.appendChild(item);
+        displayInCotainer(item);
     }
 }
 
@@ -105,7 +111,8 @@ function addInList() {
     if (textInput == '') return;
 
     var newItem = createItem(textInput);
-    document.body.appendChild(newItem);
+
+    displayInCotainer(newItem);
 
     addItemInLocalStorage(newItem);
 }

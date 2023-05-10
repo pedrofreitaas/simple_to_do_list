@@ -1,12 +1,12 @@
 
 # Simple TO-DO dynamic list.
 
-```bash
-This is a list where you can load things to do, and highlight, remove or mark them as done.\n
-The list have the adding and clearing features.\n
-The data persists with the page is reloaded. (still have to impement in the new version)\n
 ```
-
+This is a list where you can load things to do.
+It's possible to highlight, remove or mark them as done.
+The list have the adding and clearing features.
+The data persists with the page is reloaded.
+```
 
 ## 🛠 Languages:
 ![](https://img.shields.io/badge/-Javascript-white?logo=javascript&logoColor=yellow&style=flat)
@@ -15,4 +15,5 @@ The data persists with the page is reloaded. (still have to impement in the new 
 
 ## Projects screenshots.
 
+![Final Version](https://i.imgur.com/YHpxWJ6.png)
 ![](https://i.imgur.com/zdyCwp3.png)
