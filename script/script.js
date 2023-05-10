@@ -1,20 +1,20 @@
-window.onload = function teste() {
-    const storedItems = JSON.parse(localStorage.getItem('list_items'));
+const allItemsKey = 'items';
 
-    if(storedItems == null) return;
+window.onload = function loadItems() {
+    var items = localStorage.getItem(allItemsKey);
 
-    var taskList = document.getElementById("main_list");
+    if (items == null) return;
 
-    for(let index=0; index<storedItems.length;index++) {
-        var listItem = document.createElement("li");
-        listItem.textContent = storedItems[index];
+    items = JSON.parse(items);
 
-        if (listItem.textContent[0] == "*") {
-            listItem.style.fontWeight = 'bold';
-            listItem.textContent = listItem.textContent.slice(1);
-        }
-        
-        taskList.appendChild(listItem);
+    for(var i=0;i<items.length;i++) {
+        var itemInfo = items[i];
+
+        var item = createItem(itemInfo.text);
+        if (itemInfo.bold) item.style.fontWeight = 'bold';
+        if (itemInfo.line_through) item.style.textDecoration = 'line-through';
+
+        document.body.appendChild(item);
     }
 }
 
@@ -25,7 +25,7 @@ function createItem(textContent) {
 
     newItem.innerHTML = `<i class="fa-sharp fa-solid fa-arrow-right"></i>
         
-    <p> ${textContent} </p>
+    <p class="text">${textContent}</p>
 
     <button class="remove_task_button" onclick="removeTask(this)"> <i class="fa-solid fa-xmark"></i> </button>
     <button class="mark_done_task_button" onclick="markTaskDone(this)"> <i class="fa-solid fa-thumbs-up"></i> </button>
@@ -36,28 +36,69 @@ function createItem(textContent) {
 }
 
 //Makes the task disapper from the page.
-function removeTask(element) {
-    element.parentElement.remove()
+function removeTask(button) {
+    button.parentElement.remove()
+    removeItemFromLocalStorage(button.parentElement);
 }
 
 //Makes the text go normal<->scratch. 
-function markTaskDone(element) {
-    if (element.parentElement.style.textDecoration == '' )
-        element.parentElement.style.textDecoration = 'line-through';
+function markTaskDone(button) {
+    if (button.parentElement.style.textDecoration == '' )
+    button.parentElement.style.textDecoration = 'line-through';
     
     else
-        element.parentElement.style.textDecoration = '';
+    button.parentElement.style.textDecoration = '';
+
+    addItemInLocalStorage(button.parentElement);
 }
 
 //Makes the text go normal<->bold.
-function highlightTask(element) {
-    if (element.parentElement.style.fontWeight != 'bold' )
-        element.parentElement.style.fontWeight = 'bold';
+function highlightTask(button) {
+    if (button.parentElement.style.fontWeight != 'bold')
+        button.parentElement.style.fontWeight = 'bold';
 
     else
-        element.parentElement.style.fontWeight = '';
+        button.parentElement.style.fontWeight = '';
+
+    addItemInLocalStorage(button.parentElement);
 }
 
+//Adds the itemInfos in the list inside the localStorage.
+function addItemInLocalStorage(item) {
+    const itemInfo = {text: item.querySelectorAll('.text')[0].textContent,
+                      bold: item.style.fontWeight=='bold',
+                      line_through: item.style.textDecoration=='line-through'};
+
+    var currentItems = localStorage.getItem(allItemsKey);
+
+    if (currentItems==null)
+        currentItems = [itemInfo];
+    else {
+        currentItems = JSON.parse(currentItems);
+
+        let existing = currentItems.find((item) => item.text === itemInfo.text);
+
+        if ( existing )
+            Object.assign(existing, itemInfo);
+        else
+            currentItems.push(itemInfo);
+    }
+
+    localStorage.setItem(allItemsKey, JSON.stringify( currentItems ) );                                                                               
+}
+
+//Remove the itemInfos from the list inside the localStorage.
+function removeItemFromLocalStorage(item) {
+    const itemText = item.querySelectorAll('.text')[0].textContent;
+    
+    var currentItems = JSON.parse(localStorage.getItem(allItemsKey));
+
+    currentItems = currentItems.filter(item => item.text != itemText);
+
+    localStorage.setItem(allItemsKey, JSON.stringify(currentItems));
+}
+
+//Adds an item and storages it.
 function addInList() {
     var textInput = document.getElementById('text_input').value;
 
@@ -65,8 +106,11 @@ function addInList() {
 
     var newItem = createItem(textInput);
     document.body.appendChild(newItem);
+
+    addItemInLocalStorage(newItem);
 }
 
+//Removes all items from the page and the storage.
 function clearList() {
     var items = document.querySelectorAll('.item');
     items.forEach(item=>item.remove());
